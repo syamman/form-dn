@@ -1,0 +1,352 @@
+<div class="row mb-3">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="edit-firstname">First Name / Nama Pertama*</label>
+            <input class="form-control input-lg alpha form-text" type="text" id="edit-firstname" name="firstname"
+                maxlength="255">
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="edit-lastname">Last Name / Nama Keluarga*</label>
+            <input class="form-control input-lg alpha form-text" type="text" id="edit-lastname" name="lastname"
+                maxlength="255">
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="edit-email">Email / Emel*</label>
+            <input class="form-control input-lg email form-email" type="email" id="edit-email" name="email"
+                maxlength="255" value="fikri@mediacliq.my" disabled>
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label>Mobile Number / No. Telefon*</label>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg" readonly value="+60" />
+                </div>
+            </div>
+
+            <div class="col-xs-9">
+                <div class="form-group">
+                    <input class="form-control input-lg numeric form-text" placeholder="eg. 120005555" maxlength="11"
+                        type="text" id="edit-mobile-no" name="mobile_no">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="edit-dob">D.O.B / Tarikh Lahir *</label>
+            <br>
+            <input class="form-control input-lg form-text date" type="text" id="edit-dob" name="dob" maxlength="10"
+                readonly style="display: none;" />
+            <div class="col-xs-6" style="padding-left: 0;">
+                <select name="" id="edit-dob-month" class="form-control input-lg form-text">
+                    <option value="" selected="true">Month</option>
+                </select>
+            </div>
+            <div class="col-xs-6" style="padding-right: 0;">
+                <select name="" id="edit-dob-year" class="form-control input-lg form-text">
+                    <option value="" selected="true">Year</option>
+                </select>
+            </div>
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            initDOBRange();
+            function dateRange() {
+                const min_date = new Date();
+                const max_date = new Date();
+                max_date.setMonth(max_date.getMonth() - 216);
+                min_date.setMonth(max_date.getMonth() - 960);
+
+                var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                return { min_date: min_date, max_date: max_date, month: month }
+            }
+
+            function initDOBRange() {
+                for (let i = dateRange().max_date.getFullYear(); i >= dateRange().min_date.getFullYear(); i--) {
+                    $('select#edit-dob-year').append('<option value="' + i + '">' + i + '</option>');
+                }
+
+                for (let i = 0; i < 12; i++) {
+                    $('select#edit-dob-month').append(`<option value="${i + 1}">` + dateRange().month[i] + '</option>');
+                }
+            }
+
+            $('select#edit-dob-year').on('change', function () {
+                if (this.value == dateRange().min_date.getFullYear()) {
+                    $('select#edit-dob-month option').each(function () {
+                        if ($(this).val() != '') {
+                            $(this).remove();
+                        }
+                    });
+                    for (let i = dateRange().min_date.getMonth(); i < 12; i++) {
+                        $('select#edit-dob-month').append(`<option value="${i + 1}">` + dateRange().month[i] + '</option>');
+                    }
+                } else if (this.value == dateRange().max_date.getFullYear()) {
+                    $('select#edit-dob-month option').each(function () {
+                        if ($(this).val() != '') {
+                            $(this).remove();
+                        }
+                    });
+                    for (let i = 0; i <= dateRange().max_date.getMonth(); i++) {
+                        $('select#edit-dob-month').append(`<option value="${i + 1}">` + dateRange().month[i] + '</option>');
+                    }
+                } else {
+                    if ($('select#edit-dob-month option').length <= 12) {
+                        $('select#edit-dob-month option').each(function () {
+                            if ($(this).val() != '') {
+                                $(this).remove();
+                            }
+                        });
+
+                        for (let i = 0; i < 12; i++) {
+                            $('select#edit-dob-month').append(`<option value="${i + 1}">` + dateRange().month[i] + '</option>');
+                        }
+                    }
+                }
+                if (this.value !== "" && $("select#edit-dob-month").val() !== "") {
+                    let d = new Date();
+                    d.setFullYear(this.value, $("select#edit-dob-month").val() - 1, 1);
+                    $("input#edit-dob").val(formatDate(d));
+                } else {
+                    $("input#edit-dob").val("");
+                    $("input#edit-dob").focus();
+                }
+            });
+
+            $('select#edit-dob-month').on('change', function () {
+                if (this.value !== "" && $("select#edit-dob-year").val() !== "") {
+                    let d = new Date();
+                    d.setFullYear($("select#edit-dob-year").val(), this.value - 1, 1);
+                    $("input#edit-dob").val(formatDate(d));
+                } else {
+                    $("input#edit-dob").val("");
+                    $("input#edit-dob").focus();
+                }
+            });
+
+            function formatDate(date) {
+                var d = new Date(date),
+                    month = '' + (d.getMonth() + 1),
+                    day = '' + d.getDate(),
+                    year = d.getFullYear();
+
+                if (month.length < 2)
+                    month = '0' + month;
+                if (day.length < 2)
+                    day = '0' + day;
+
+                return [year, month, day].join('-');
+            }
+        })
+    </script>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="edit-gender">Gender / Jantina*</label><br />
+            <div style="padding-bottom: 5px">
+                <span style="padding-right: 50px">
+                    <input type="radio" value="m" name="gender">&nbsp;&nbsp;Male /
+                    Lelaki</span>
+                <span><input type="radio" value="f" name="gender">&nbsp;&nbsp;Female /
+                    Perempuan</span><br />
+            </div>
+            <span><input type="radio" value="u" name="gender">&nbsp;&nbsp;Prefer not to say
+                / Tidak ingin mendedahkan</span>
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="edit-address">Address / Alamat*</label>
+            <input class="form-control input-lg address form-text" type="text" id="edit-address" name="address"
+                maxlength="255">
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="edit-postalcode">Postcode / Poskod*</label>
+                    <input class="form-control input-lg numeric form-text" type="text" id="edit-postalcode"
+                        name="postalcode" maxlength="5">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="js-form-item form-item js-form-type-select form-item-states js-form-item-states">
+                        <label for="edit-states">City / Bandar*</label>
+                        <select class="form-control input-lg form-select" id="edit-states" name="states">
+                            <option value="Johor">Johor</option>
+                            <option value="Kedah">Kedah</option>
+                            <option value="Kelantan">Kelantan</option>
+                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                            <option value="Labuan">Labuan</option>
+                            <option value="Melaka">Melaka</option>
+                            <option value="Negeri Sembilan">Negeri Sembilan</option>
+                            <option value="Pahang">Pahang</option>
+                            <option value="Penang">Penang</option>
+                            <option value="Perak">Perak</option>
+                            <option value="Perlis">Perlis</option>
+                            <option value="Putrajaya">Putrajaya</option>
+                            <option value="Selangor">Selangor</option>
+                            <option value="Sabah">Sabah</option>
+                            <option value="Sarawak">Sarawak</option>
+                            <option value="Terengganu">Terengganu</option>
+                        </select>
+                    </div>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="js-form-item form-item js-form-type-select form-item-states js-form-item-states">
+                <label for="edit-states">State / Negeri*</label>
+                <select class="form-control input-lg form-select" id="edit-states" name="states">
+                    <option value="Johor">Johor</option>
+                    <option value="Kedah">Kedah</option>
+                    <option value="Kelantan">Kelantan</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Labuan">Labuan</option>
+                    <option value="Melaka">Melaka</option>
+                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                    <option value="Pahang">Pahang</option>
+                    <option value="Penang">Penang</option>
+                    <option value="Perak">Perak</option>
+                    <option value="Perlis">Perlis</option>
+                    <option value="Putrajaya">Putrajaya</option>
+                    <option value="Selangor">Selangor</option>
+                    <option value="Sabah">Sabah</option>
+                    <option value="Sarawak">Sarawak</option>
+                    <option value="Terengganu">Terengganu</option>
+                </select>
+            </div>
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <label for="edit-optin">Preferred Brands / Jenama Pilihan* :</label>
+            </div>
+            <div class="form-group">
+                <span class="help-block" style="padding-left:15px"></span>
+                <div class="col-md-4">
+                    <table>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" id="checked-optin-all" name="checkbox-optin" value="all" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                All Brands</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgmilo_SBmktprogram" /> </td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                MILO&reg;</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgmaggi_SBmktprogram" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                MAGGI&reg;</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgnescafe_SBmktprogram" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                NESCAF&Eacute;&reg;</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgnestum_SBmktprogram" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                NESTUM&reg;</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <table>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgmilk_SBmktprogram" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                Just Milk&trade;</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgomegaplus_SBmktprogram" />
+                            </td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                Nestl&eacute; Omega Plus</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgmilk_SBmktprogram" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                Nestl&eacute; EveryDay</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgicecream_SBmktprogram" />
+                            </td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                Ice Cream</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgkitkat_SBmktprogram" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                KitKat&reg;</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <table>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgcrunch_SBmktprogram" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                Nestl&eacute; Crunch&reg;</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin"
+                                    value="MYdnprghealthscience_SBmktprogram" /></td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                Nestl&eacute; Health Science<br />(Nutren&reg; and
+                                Peptamen&reg;)</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgadultscereal_SBmktprogram" />
+                            </td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                Nestl&eacute; Breakfast Adult Cereal<br />(Fitnesse)</td>
+                        </tr>
+                        <tr style="vertical-align:initial">
+                            <td><input type="checkbox" name="checkbox-optin" value="MYdnprgkidscereal_SBmktprogram" />
+                            </td>
+                            <td style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                Nestl&eacute; Breakfast Kids Cereal<br />(Koko Krunch&reg;,
+                                Honey Stars&reg; etc)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

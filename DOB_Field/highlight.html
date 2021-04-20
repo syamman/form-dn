@@ -1,0 +1,111 @@
+<div class="col-md-6">
+    <div class="form-group">
+        <label for="edit-dob">D.O.B / Tarikh Lahir *</label>
+        <br>
+        <input class="form-control input-lg form-text date" type="text" id="edit-dob" name="dob" maxlength="10" readonly
+            style="display: none;" />
+        <div class="col-xs-6" style="padding-left: 0;">
+            <select name="" id="edit-dob-month" class="form-control input-lg form-text">
+                <option value="" selected="true">Month</option>
+            </select>
+        </div>
+        <div class="col-xs-6" style="padding-right: 0;">
+            <select name="" id="edit-dob-year" class="form-control input-lg form-text">
+                <option value="" selected="true">Year</option>
+            </select>
+        </div>
+        <span class="help-block"></span>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        initDOBRange();
+        function dateRange() {
+            const min_date = new Date();
+            const max_date = new Date();
+            max_date.setMonth(max_date.getMonth() - 216);
+            min_date.setMonth(max_date.getMonth() - 960);
+
+            var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            return { min_date: min_date, max_date: max_date, month: month }
+        }
+
+        function initDOBRange() {
+            for (let i = dateRange().max_date.getFullYear(); i >= dateRange().min_date.getFullYear(); i--) {
+                $('select#edit-dob-year').append('<option value="' + i + '">' + i + '</option>');
+            }
+
+            for (let i = 0; i < 12; i++) {
+                $('select#edit-dob-month').append(`<option value="${i + 1}">` + dateRange().month[i] + '</option>');
+            }
+        }
+
+        $('select#edit-dob-year').on('change', function () {
+            if (this.value == dateRange().min_date.getFullYear()) {
+                $('select#edit-dob-month option').each(function () {
+                    if ($(this).val() != '') {
+                        $(this).remove();
+                    }
+                });
+                for (let i = dateRange().min_date.getMonth(); i < 12; i++) {
+                    $('select#edit-dob-month').append(`<option value="${i + 1}">` + dateRange().month[i] + '</option>');
+                }
+            } else if (this.value == dateRange().max_date.getFullYear()) {
+                $('select#edit-dob-month option').each(function () {
+                    if ($(this).val() != '') {
+                        $(this).remove();
+                    }
+                });
+                for (let i = 0; i <= dateRange().max_date.getMonth(); i++) {
+                    $('select#edit-dob-month').append(`<option value="${i + 1}">` + dateRange().month[i] + '</option>');
+                }
+            } else {
+                if ($('select#edit-dob-month option').length <= 12) {
+                    $('select#edit-dob-month option').each(function () {
+                        if ($(this).val() != '') {
+                            $(this).remove();
+                        }
+                    });
+
+                    for (let i = 0; i < 12; i++) {
+                        $('select#edit-dob-month').append(`<option value="${i + 1}">` + dateRange().month[i] + '</option>');
+                    }
+                }
+            }
+            if (this.value !== "" && $("select#edit-dob-month").val() !== "") {
+                let d = new Date();
+                d.setFullYear(this.value, $("select#edit-dob-month").val() - 1, 1);
+                $("input#edit-dob").val(formatDate(d));
+            } else {
+                $("input#edit-dob").val("");
+                $("input#edit-dob").focus();
+            }
+        });
+
+        $('select#edit-dob-month').on('change', function () {
+            if (this.value !== "" && $("select#edit-dob-year").val() !== "") {
+                let d = new Date();
+                d.setFullYear($("select#edit-dob-year").val(), this.value - 1, 1);
+                $("input#edit-dob").val(formatDate(d));
+            } else {
+                $("input#edit-dob").val("");
+                $("input#edit-dob").focus();
+            }
+        });
+
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+    })
+</script>

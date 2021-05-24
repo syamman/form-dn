@@ -1,0 +1,732 @@
+.register .signup-container {
+    padding: 0;
+}
+.register .signup-wrapper {
+    background: #fff;
+}
+
+.register {
+    color: #8b8b8a;
+}
+
+.register .pink-color {
+    color: #f05983;
+}
+
+.register .zero-layout,
+.register .zero-layout-input {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.register .zero-layout-left,
+.register .zero-layout-left-input {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+}
+
+.register .zero-layout-right,
+.register .zero-layout-right-input {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.register .standard-mb {
+    margin-bottom: 2rem;
+}
+
+.register .standard-margin {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.register .top-banner {
+    margin-top: 1.5rem;
+    position: relative;
+}
+
+.register .tnc {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+}
+
+.register .tnc a {
+    color: #434951;
+}
+
+.register .signup-thumbnail .owl-carousel-thumbnail {
+    position: relative;
+}
+
+.register .signup-thumbnail .owl-item {
+    justify-content: center;
+}
+
+.register .signup-thumbnail .owl-carousel-thumbnail .owl-prev,
+.register .signup-thumbnail .owl-carousel-thumbnail .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.register .signup-thumbnail .owl-carousel-thumbnail .owl-prev {
+    left: 0;
+}
+
+.register .signup-thumbnail .owl-carousel-thumbnail .owl-next {
+    right: 0;
+}
+
+.register .signup-thumbnail .owl-carousel-thumbnail .owl-nav.disabled {
+    display: none;
+}
+
+.register .signup-thumbnail,
+.register .register-form {
+    padding: 4rem 0;
+}
+
+.register .signup-thumbnail .owl-carousel-thumbnail button {
+    background: transparent;
+    border: 0;
+    color: #f05984;
+    font-size: 1.5rem;
+}
+
+.register .checkbox input[type="checkbox"],
+.register .checkbox-inline input[type="checkbox"],
+.register .radio input[type="radio"],
+.register .radio-inline input[type="radio"] {
+    margin-left: 0;
+}
+
+.register input,
+.register select {
+    background: #f5f5f5;
+}
+
+.register .btn-pink {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: #f05984;
+    border: 1px solid #f05984;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.register .btn-pink::after {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f054";
+    color: #fff;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.register .form-group input[type="checkbox"] {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 10rem;
+    display: none;
+    cursor: pointer;
+}
+
+.register .form-group label {
+    position: relative;
+}
+
+.register .form-group label.option:before {
+    content: "";
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #888887;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 7px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.register .form-group input:checked + label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 6px;
+    height: 12px;
+    border: solid #f05984;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+@media (max-width: 678px) {
+    .register .signup-thumbnail .owl-carousel-thumbnail .owl-nav.disabled {
+        display: block;
+    }
+
+    .register .signup-thumbnail .owl-carousel-thumbnail .owl-prev {
+        left: 10%;
+    }
+
+    .register .signup-thumbnail .owl-carousel-thumbnail .owl-next {
+        right: 10%;
+    }
+
+    .register .signup-thumbnail,
+    .register .register-form {
+        padding: 2rem 0;
+    }
+
+    .register .standard-mb {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 999px) {
+    .register .signup-thumbnail .owl-carousel-thumbnail .owl-nav.disabled {
+        display: block;
+    }
+
+    .register .signup-thumbnail .owl-carousel-thumbnail .owl-prev {
+        left: 20%;
+    }
+
+    .register .signup-thumbnail .owl-carousel-thumbnail .owl-next {
+        right: 20%;
+    }
+}
+
+@media (max-width: 767px) {
+    .register label.zero-layout,
+    .register label.zero-layout-left,
+    .register label.zero-layout-right {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .register .zero-layout,
+    .register .zero-layout-left,
+    .register .zero-layout-right {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .register .zero-layout-input,
+    .register .zero-layout-left-input,
+    .register .zero-layout-right-input {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .register .tnc {
+        left: 30%;
+        transform: translateX(-50%);
+    }
+}
+
+.login-page .login-container {
+    padding: 0;
+}
+
+.login-page .login-wrapper {
+    background: #fff;
+}
+
+.login-page {
+    margin-top: 1.4rem;
+    color: #8b8b8a;
+}
+
+.login-page .container {
+    max-width: 970px;
+}
+
+b {
+    font-family: "Frutiger LT Std 55 Black";
+}
+
+.login-page .pink-color {
+    color: #f05983;
+}
+
+.login-page .zero-layout,
+.login-page .zero-layout-input {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.login-page .zero-layout-left,
+.login-page .zero-layout-left-input {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+}
+
+.login-page .zero-layout-right,
+.login-page .zero-layout-right-input {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.login-page input,
+.login-page select {
+    background: #f5f5f5;
+}
+
+.login-page a.button {
+    position: relative;
+    background-color: #f05983;
+    border: 1px solid #f05983;
+    border-radius: 0;
+    color: #fff;
+    padding: 10px 0;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    max-width: 13rem !important;
+}
+
+.login-page a.button::after {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f054";
+    color: #fff;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-page h1 {
+    color: #434951;
+}
+
+.login-page p b {
+    color: #434951;
+}
+
+.login-page p {
+    color: #8b8b8a;
+}
+
+.login-page hr {
+    border-color: #bfbfbf;
+    width: 100%;
+}
+
+.login-page button:focus {
+    outline: 0;
+}
+
+.login-page button:active {
+    background-color: #f05983;
+    border-color: #f05983;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.login-page section.desc {
+    padding: 4rem 0;
+}
+
+.login-page .mb-1 {
+    margin-bottom: 1rem;
+}
+
+.login-page .mb-2 {
+    margin-bottom: 2rem;
+}
+
+.login-page .mb-3 {
+    margin-bottom: 3rem;
+}
+
+.login-page section.desc .img {
+    padding: 0 3rem;
+}
+
+.login-page section.desc .copy {
+    padding: 0 3rem;
+}
+
+.login-page .login-form {
+    padding: 4rem 0;
+}
+
+.login-page .pink-color {
+    color: #f05983;
+}
+
+.login-page .standard-mb {
+    margin-bottom: 2rem;
+}
+
+.login-page .standard-margin {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.login-page .btn-pink {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: #f05984;
+    border: 1px solid #f05984;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.login-page .btn-pink:focus {
+    outline: 0;
+}
+
+.login-page .btn-pink::after {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f054";
+    color: #fff;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (max-width: 678px) {
+    .login-page section.desc {
+        padding: 4rem 1rem;
+    }
+
+    .login-page section.desc .img {
+        padding: 0 2rem;
+    }
+
+    .login-page section.desc .copy {
+        padding: 0 1.5rem;
+    }
+
+    .login-page .standard-mb {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-page .login-form {
+        padding: 2rem 0;
+    }
+
+    .login-page label.zero-layout,
+    .login-page label.zero-layout-left,
+    .login-page label.zero-layout-right {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .login-page .zero-layout,
+    .login-page .zero-layout-left,
+    .login-page .zero-layout-right {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .login-page .zero-layout-input,
+    .login-page .zero-layout-left-input,
+    .login-page .zero-layout-right-input {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.gigya-screen-caption {
+    display: none;
+}
+
+.op-none {
+    opacity: 0;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+hr {
+    width: 100%;
+    height: 0.1rem;
+    background: #bfbfbf;
+}
+
+.standard-margin {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group.d-none {
+    display: none;
+}
+
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form label.birthday-notes {
+    width: 100%;
+}
+
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form label.birthday-notes p small {
+    font-size: 0.8rem;
+    position: relative;
+    left: 10.5rem;
+}
+
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .m-none {
+    display: block;
+}
+
+#gigya-register-screen.gigya-screen.v2
+    .gigya-register-form
+    .gigya-composite-control.gigya-composite-control-multi-choice {
+    display: flex;
+}
+
+#gigya-register-screen.gigya-screen.v2
+    .gigya-register-form
+    .gigya-composite-control.gigya-composite-control-multi-choice
+    .gigya-label {
+    width: 7.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .grey-color,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .grey-color {
+    color: #8b8b8a !important;
+    font-weight: 100;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .red-color,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .red-color,
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form span.red-color,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form span.red-color {
+    color: red;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .pink-color,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .pink-color,
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form a.pink-color,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form a.pink-color {
+    color: #f05983;
+}
+
+r,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form a.dn-link {
+    color: #f05983;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-layout-row.with-divider > .gigya-layout-cell.with-divider,
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-layout-row.with-divider {
+    display: none !important;
+}
+
+#gigya-login-screen.gigya-screen.v2,
+#gigya-register-screen.gigya-screen.v2 {
+    background-color: #fff !important;
+    padding: 0 !important;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group {
+    display: flex !important;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group label.gigya-label,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group label.gigya-label {
+    width: 16rem !important;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group .gigya-label-text,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-label-text {
+    color: #8b8b8a !important;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group input,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group input,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group select {
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form input[type="submit"],
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form input[type="submit"] {
+    width: 100%;
+    max-width: 16rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f05984;
+    border: 1px solid #f05984;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form input[type="submit"]::after,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form input[type="submit"]::after {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f054";
+    color: #fff;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#gigya-register-screen.gigya-screen.v2 .gigya-layout-row.with-divider > .gigya-layout-cell.with-divider {
+    display: none;
+}
+
+#gigya-register-screen.gigya-screen.v2.mobile h1,
+#gigya-register-screen.gigya-screen.v2.mobile h2 {
+    font-size: 16px;
+}
+
+#gigya-register-screen.gigya-screen.v2 .gigya-composite-control-password.pl-7 {
+    margin-left: 7.5px;
+}
+
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active,
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active,
+#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active,
+#gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active {
+    position: absolute;
+    bottom: 0;
+    left: 11rem;
+}
+
+@media (max-width: 678px) {
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form label.birthday-notes p small {
+        left: 0;
+    }
+    #gigya-register-screen.gigya-screen.v2
+        .gigya-register-form
+        .gigya-composite-control.gigya-composite-control-multi-choice {
+        display: block;
+    }
+    #gigya-register-screen.gigya-screen.v2
+        .gigya-register-form
+        .gigya-composite-control.gigya-composite-control-multi-choice
+        .gigya-label {
+        width: auto;
+        padding: 0;
+        margin: 0;
+    }
+    #gigya-register-screen.gigya-screen.v2 .gigya-composite-control-password.pl-7 {
+        margin-left: 0;
+    }
+    #gigya-register-screen.gigya-screen.v2 .gigya-layout-cell .gigya-layout-cell {
+        max-width: 100%;
+    }
+    #gigya-register-screen.gigya-screen.v2
+        .gigya-layout-row.with-two-inputs
+        > .gigya-layout-cell
+        + .gigya-layout-cell
+        > .gigya-composite-control {
+        padding-left: 0;
+    }
+    #gigya-register-screen.gigya-screen.v2 .gigya-layout-row.with-two-inputs .gigya-composite-control {
+        padding-right: 0;
+    }
+    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group label.gigya-label,
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group label.gigya-label {
+        width: 100% !important;
+    }
+    .standard-margin {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .d-none {
+        display: block;
+    }
+    .m-none {
+        display: none;
+    }
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group.d-none {
+        display: block;
+    }
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .m-none,
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group.m-none {
+        display: none !important;
+    }
+    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group,
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group {
+        display: block !important;
+    }
+    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group label.gigya-label,
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group label.gigya-label {
+        width: auto;
+    }
+
+    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active,
+    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active,
+    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active,
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active,
+    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active {
+        left: 0;
+    }
+}

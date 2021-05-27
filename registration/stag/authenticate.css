@@ -224,7 +224,7 @@
         padding-left: 0;
         padding-right: 0;
     }
-
+    
     .register .zero-layout,
     .register .zero-layout-left,
     .register .zero-layout-right {
@@ -427,9 +427,6 @@ b {
     transform: translateY(-50%);
 }
 
-@media (min-width: 1200px) {
-}
-
 @media (max-width: 678px) {
     .login-page section.desc {
         padding: 4rem 1rem;
@@ -508,191 +505,179 @@ hr {
     margin-bottom: 2rem;
 }
 
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group.d-none {
+.gigya-screen .form-group.d-none {
     display: none;
 }
 
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form label.birthday-notes {
+.gigya-screen label.birthday-notes {
     width: 100%;
 }
 
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form label.birthday-notes p small {
-    font-size: 0.8rem;
-    position: relative;
-    left: 10.5rem;
-}
-
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .m-none {
+.gigya-screen .m-none {
     display: block;
 }
 
-#gigya-register-screen.gigya-screen.v2
-    .gigya-register-form
-    .gigya-composite-control.gigya-composite-control-multi-choice {
-    display: flex;
-}
-
-#gigya-register-screen.gigya-screen.v2
-    .gigya-register-form
-    .gigya-composite-control.gigya-composite-control-multi-choice
-    .gigya-label {
-    width: 7.5rem;
-    padding: 0;
-    margin: 0;
-}
-
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .grey-color,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .grey-color {
+.gigya-screen .grey-color {
     color: #8b8b8a !important;
     font-weight: 100;
 }
 
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .red-color,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .red-color,
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form span.red-color,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form span.red-color {
+.gigya-screen .red-color, .gigya-screen span.red-color {
     color: red;
 }
 
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .pink-color,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .pink-color,
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form a.pink-color,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form a.pink-color {
+.gigya-screen .pink-color, .gigya-screen a.pink-color {
     color: #f05983;
 }
 
-r,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form a.dn-link {
+.gigya-screen a.dn-link {
     color: #f05983;
 }
 
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-layout-row.with-divider > .gigya-layout-cell.with-divider,
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-layout-row.with-divider {
+.gigya-screen .gigya-login-form .gigya-layout-row.with-divider>.gigya-layout-cell.with-divider, .gigya-screen .gigya-login-form .gigya-layout-row.with-divider {
     display: none !important;
 }
 
-#gigya-login-screen.gigya-screen.v2,
-#gigya-register-screen.gigya-screen.v2 {
+.gigya-screen {
     background-color: #fff !important;
     padding: 0 !important;
 }
 
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group {
-    display: flex !important;
-    position: relative;
-    padding-bottom: 1rem;
-}
-
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group label.gigya-label,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group label.gigya-label {
-    width: 16rem !important;
-}
-
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group .gigya-label-text,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-label-text {
+.gigya-screen .form-group .gigya-label-text, .gigya-screen .gigya-label-text {
     color: #8b8b8a !important;
 }
 
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group input,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group input,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group select {
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    background: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form input[type="submit"],
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form input[type="submit"] {
-    width: 100%;
-    max-width: 16rem;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #f05984;
-    border: 1px solid #f05984;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form input[type="submit"]::after,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form input[type="submit"]::after {
-    position: absolute;
-    font-family: "FontAwesome";
-    content: "\f054";
-    color: #fff;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#gigya-register-screen.gigya-screen.v2 .gigya-layout-row.with-divider > .gigya-layout-cell.with-divider {
+.gigya-screen .register-social-login #password-row.gigya-layout-row {
     display: none;
 }
 
-#gigya-register-screen.gigya-screen.v2.mobile h1,
-#gigya-register-screen.gigya-screen.v2.mobile h2 {
+#gigya-register-screen.gigya-screen.mobile h1, #gigya-register-screen.gigya-screen.mobile h2 {
     font-size: 16px;
 }
 
-#gigya-register-screen.gigya-screen.v2 .gigya-composite-control-password.pl-7 {
-    margin-left: 7.5px;
+.gigya-screen .form-control {
+    border-color: transparent;
 }
 
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active,
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active,
-#gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active,
-#gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active {
-    position: absolute;
-    bottom: 0;
-    left: 11rem;
+.gigya-screen a.dn-link b {
+    font-weight: 100;
 }
 
-@media (max-width: 678px) {
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form label.birthday-notes p small {
-        left: 0;
+@media (min-width: 768px) {
+    .gigya-screen .form-group {
+        margin-bottom: 4rem;
     }
-    #gigya-register-screen.gigya-screen.v2
-        .gigya-register-form
-        .gigya-composite-control.gigya-composite-control-multi-choice {
-        display: block;
+    .gigya-screen .left-g {
+        padding-left: 0rem!important;
+        padding-right: 1rem!important;
     }
-    #gigya-register-screen.gigya-screen.v2
-        .gigya-register-form
-        .gigya-composite-control.gigya-composite-control-multi-choice
-        .gigya-label {
-        width: auto;
-        padding: 0;
+    .gigya-screen .right-g {
+        padding-left: 1rem!important;
+        padding-right: 0rem!important;
+    }
+    .gigya-screen .form-group input, .gigya-screen .form-group select {
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+    .gigya-screen input[type="submit"] {
+        width: 100%;
+        max-width: 16rem;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f05984;
+        border: 1px solid #f05984;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .gigya-screen input[type="submit"]::after {
+        position: absolute;
+        font-family: "FontAwesome";
+        content: "\f054";
+        color: #fff;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #gigya-register-screen.gigya-screen .gigya-layout-row.with-divider>.gigya-layout-cell.with-divider {
+        display: none;
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active, .gigya-screen .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active {
+        float: right;
+        width: calc(100% - 9rem);
+        padding-bottom: 0.5rem;
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown label.gigya-label, .gigya-screen .gigya-composite-control.gigya-composite-control-password label.gigya-label, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox label.gigya-label, .gigya-screen .gigya-layout-row.with-two-inputs .gigya-composite-control.gigya-composite-control-multi-choice label.gigya-label {
+        float: left;
+        width: 9rem;
         margin: 0;
     }
-    #gigya-register-screen.gigya-screen.v2 .gigya-composite-control-password.pl-7 {
-        margin-left: 0;
+    .gigya-screen .gigya-composite-control.gigya-composite-control-multi-choice .gigya-multi-choice-item {
+        float: left;
+        width: auto;
+        padding-right: 2rem;
+        margin: 0;
+        padding-top: 0;
     }
-    #gigya-register-screen.gigya-screen.v2 .gigya-layout-cell .gigya-layout-cell {
+    .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown input, .gigya-screen .gigya-composite-control.gigya-composite-control-password input, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox input, .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown select, .gigya-screen .gigya-composite-control.gigya-composite-control-password select, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox select {
+        float: right;
+        width: calc(100% - 9rem);
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown input, .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown select, .gigya-screen .gigya-composite-control.gigya-composite-control-password input, .gigya-screen .gigya-composite-control.gigya-composite-control-password select, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox input, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox select {
+        margin-bottom: 0.5rem;
+    }
+    .gigya-screen .gigya-layout-row.with-two-inputs label.gigya-composite-control.birthday-notes p {
+        float: right;
+        width: calc(100% - 9rem);
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-checkbox {
+        width: 100%;
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-checkbox.width-30 {
+        float: left;
+        width: 30%;
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-checkbox.width-40 {
+        float: left;
+        width: 40%;
+    }
+}
+
+@media (max-width: 767px) {
+    .gigya-screen .left-g, .gigya-screen .right-g {
+        padding-left: 0rem!important;
+        padding-right: 0rem!important;
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-multi-choice .gigya-multi-choice-item label {
+        width: 90%;
+    }
+    .gigya-screen .form-group {
+        margin-bottom: 0;
+    }
+    .gigya-screen label.birthday-notes p small {
+        left: 0;
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-multi-choice {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        /* margin-bottom: 1rem; */
+        float: left;
+    }
+    .gigya-screen .gigya-layout-cell .gigya-layout-cell {
         max-width: 100%;
     }
-    #gigya-register-screen.gigya-screen.v2
-        .gigya-layout-row.with-two-inputs
-        > .gigya-layout-cell
-        + .gigya-layout-cell
-        > .gigya-composite-control {
-        padding-left: 0;
-    }
-    #gigya-register-screen.gigya-screen.v2 .gigya-layout-row.with-two-inputs .gigya-composite-control {
-        padding-right: 0;
-    }
-    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group label.gigya-label,
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group label.gigya-label {
+    .gigya-screen.form-group label.gigya-label {
         width: 100% !important;
     }
     .standard-margin {
@@ -705,28 +690,24 @@ r,
     .m-none {
         display: none;
     }
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group.d-none {
+    .gigya-screen .form-group.d-none {
         display: block;
     }
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .m-none,
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group.m-none {
+    .gigya-screen .m-none, .gigya-screen .form-group.m-none {
         display: none !important;
     }
-    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group,
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group {
-        display: block !important;
-    }
-    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .form-group label.gigya-label,
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .form-group label.gigya-label {
+    .gigya-screen .form-group label.gigya-label {
         width: auto;
     }
-
-    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active,
-    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active,
-    #gigya-login-screen.gigya-screen.v2 .gigya-login-form .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active,
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active,
-    #gigya-register-screen.gigya-screen.v2 .gigya-register-form .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active {
+    .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active, .gigya-screen .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active {
         left: 0;
+    }
+    .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown, .gigya-screen .gigya-composite-control.gigya-composite-control-password, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox, .gigya-screen .gigya-composite-control.gigya-composite-control-multi-choice .gigya-multi-choice-item, .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown label.gigya-label, .gigya-screen .gigya-composite-control.gigya-composite-control-password label.gigya-label, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox label.gigya-label, .gigya-screen .gigya-layout-row.with-two-inputs .gigya-composite-control.gigya-composite-control-multi-choice label.gigya-label, .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown input, .gigya-screen .gigya-composite-control.gigya-composite-control-password input, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox input, .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown select, .gigya-screen .gigya-composite-control.gigya-composite-control-password select, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox select, .gigya-screen .gigya-composite-control.gigya-composite-control-dropdown .gigya-error-msg-active, .gigya-screen .gigya-composite-control.gigya-composite-control-password .gigya-error-msg-active, .gigya-screen .gigya-composite-control.gigya-composite-control-textbox .gigya-error-msg-active {
+        float: left;
+        width: 100%;
+        left: 0;
+    }
+    .gigya-screen .gigya-layout-row.with-two-inputs>.gigya-layout-cell+.gigya-layout-cell>.gigya-composite-control {
+        padding-left: 0;
     }
 }

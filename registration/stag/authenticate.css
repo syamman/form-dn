@@ -557,12 +557,56 @@ hr {
 
 .gigya-screen .form-control {
     border-color: transparent;
+    box-shadow: none;
 }
 
 .gigya-screen a.dn-link b {
     font-weight: 100;
 }
 
+.gigya-screen .gigya-composite-control-array-widget div.gigya-array-template {
+    padding: 0rem 0;
+}
+
+.gigya-screen .gigya-composite-control-array-widget div.gigya-array-template .form-group {
+    margin-bottom: 3rem;
+}
+
+.gigya-screen .gigya-composite-control-array-widget div.gigya-array-template .buttons-wrapper {
+    height: 2rem;
+}
+
+.gigya-screen .gigya-composite-control-array-widget div.gigya-array-template button.gigya-array-add-btn {
+    color: #ffffff;
+    background-color: #ef5a84;
+    border: 1px solid #ef5a84;
+    padding: 0.3rem 0.5rem .3rem 2rem;
+    float: right;
+    position: relative;
+    margin-right: 1rem;
+}
+
+.gigya-screen .gigya-composite-control-array-widget div.gigya-array-template button.gigya-array-add-btn::before {
+    content: "\f0fe";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0.5rem;
+}
+.gigya-screen .gigya-composite-control-array-widget div.gigya-array-template button.gigya-array-remove-btn {
+    color: #fff;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 0.3rem 0.5rem .3rem 2rem;
+    float: right;
+    position: relative;
+    margin-right: 1rem;
+}
+.gigya-screen .gigya-composite-control-array-widget div.gigya-array-template button.gigya-array-remove-btn::before {
+    content: "\f014";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0.5rem;
+}
 @media (min-width: 768px) {
     .gigya-screen .form-group {
         margin-bottom: 4rem;
@@ -710,4 +754,9 @@ hr {
     .gigya-screen .gigya-layout-row.with-two-inputs>.gigya-layout-cell+.gigya-layout-cell>.gigya-composite-control {
         padding-left: 0;
     }
+
+    .gigya-screen .gigya-composite-control-array-widget div.gigya-array-template button.gigya-array-add-btn,
+        .gigya-screen .gigya-composite-control-array-widget div.gigya-array-template button.gigya-array-remove-btn {
+            margin-right: 0;
+        }
 }

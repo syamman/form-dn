@@ -543,6 +543,10 @@ hr {
     color: #8b8b8a;
 }
 
+.gigya-screen .gigya-composite-control.gigya-composite-control-multi-choice .gigya-multi-choice-item label {
+    font-weight: 100;
+}
+
 .gigya-screen .register-social-login #password-row.gigya-layout-row {
     display: none;
 }
@@ -602,6 +606,15 @@ hr {
     font-family: FontAwesome;
     position: absolute;
     left: 0.5rem;
+}
+
+.gigya-screen .gigya-layout-row.with-two-inputs label.gigya-composite-control.birthday-notes p {
+    font-weight: 100;
+    font-size: 0.9rem;
+}
+
+.gigya-screen .gigya-layout-row.with-two-inputs label.gigya-composite-control.birthday-notes p small {
+    font-size: 0.8rem;
 }
 
 @media (min-width: 768px) {

@@ -519,7 +519,7 @@ hr {
 
 .gigya-screen .grey-color {
     color: #8b8b8a !important;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 .gigya-screen .red-color, .gigya-screen span.red-color {
@@ -544,15 +544,15 @@ hr {
 }
 
 .gigya-screen .gigya-composite-control.gigya-composite-control-multi-choice .gigya-multi-choice-item label {
-    font-weight: 100;
+    font-weight: 400;
 }
 
 .gigya-screen .register-social-login #password-row.gigya-layout-row {
     display: none;
 }
 
-#gigya-register-screen.gigya-screen.mobile h1, #gigya-register-screen.gigya-screen.mobile h2 {
-    font-size: 16px;
+.gigya-screen.mobile h1, .gigya-screen.mobile h2 {
+    font-size: 14px;
 }
 
 .gigya-screen .form-control {
@@ -609,7 +609,7 @@ hr {
 }
 
 .gigya-screen .gigya-layout-row.with-two-inputs label.gigya-composite-control.birthday-notes p {
-    font-weight: 100;
+    font-weight: 400;
     font-size: 0.9rem;
 }
 
@@ -769,4 +769,8 @@ hr {
         .gigya-screen .gigya-composite-control-array-widget div.gigya-array-template button.gigya-array-remove-btn {
             margin-right: 0;
         }
+    
+    .gigya-screen .gigya-composite-control.gigya-spacer {
+        display: none;
+    }
 }

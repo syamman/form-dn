@@ -526,11 +526,7 @@ hr {
     color: red;
 }
 
-.gigya-screen .pink-color, .gigya-screen a.pink-color {
-    color: #f05983;
-}
-
-.gigya-screen a.dn-link {
+.gigya-screen .pink-color, .gigya-screen a.pink-color, .gigya-screen a.dn-link {
     color: #f05983;
 }
 
@@ -543,8 +539,8 @@ hr {
     padding: 0 !important;
 }
 
-.gigya-screen .form-group .gigya-label-text, .gigya-screen .gigya-label-text {
-    color: #8b8b8a !important;
+.gigya-screen, .gigya-screen *, .gigya-screen .form-group .gigya-label-text, .gigya-screen .gigya-label-text {
+    color: #8b8b8a;
 }
 
 .gigya-screen .register-social-login #password-row.gigya-layout-row {
@@ -607,6 +603,7 @@ hr {
     position: absolute;
     left: 0.5rem;
 }
+
 @media (min-width: 768px) {
     .gigya-screen .form-group {
         margin-bottom: 4rem;

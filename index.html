@@ -726,7 +726,6 @@
                                 <script>
                                     $(document).ready(function () {
                                         initDOBRange();
-                                        console.log("hai")
                                     });
                                     function dateRange() {
                                         const min_date = new Date();
@@ -913,86 +912,409 @@
 
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="edit-optin">Preferred Brands / Jenama Pilihan* :</label>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="hosehold-size">Household size*</label><br />
+                                                <div style="padding-bottom: 5px">
+                                                    <fieldset id="group1">
+                                                        <span style="padding-right: 50px">
+                                                            <input type="radio" value="m" name="hosehold_size">&nbsp;&nbsp;1-2
+                                                            pax</span>
+                                                        <span style="padding-right: 50px"><input type="radio" value="f"
+                                                                name="hosehold_size">&nbsp;&nbsp;3-5
+                                                            pax</span>
+                                                        <span style="padding-right: 50px"><input type="radio" value="f"
+                                                                name="hosehold_size">&nbsp;&nbsp;6 pax and above</span>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="children-no">No. of children*</label><br />
+                                                <div style="padding-bottom: 5px">
+                                                    <span style="padding-right: 50px">
+                                                        <input type="radio" value="m" name="children_no">&nbsp;&nbsp;No
+                                                        Children</span>
+                                                    <span style="padding-right: 50px"><input type="radio" value="f"
+                                                            name="children_no">&nbsp;&nbsp;1-2 Children</span>
+                                                    <span style="padding-right: 50px"><input type="radio" value="f"
+                                                            name="children_no">&nbsp;&nbsp;3-4 Children</span> <br>
+                                                    <span style="padding-right: 50px"><input type="radio" value="f"
+                                                            name="children_no">&nbsp;&nbsp;5 Children and above</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <style type="text/css">
+                                    label.brand-label,
+                                    label.interest-label {
+                                        position: relative;
+                                        cursor: pointer;
+                                        display: inline-block;
+                                        width: 100%;
+                                        pointer-events: none;
+                                    }
+
+                                    label.brand-label::after,
+                                    label.interest-label::after {
+                                        content: "\f077";
+                                        font-family: "FontAwesome";
+                                        position: relative;
+                                        left: 2rem;
+                                        display: inline-block;
+                                        -webkit-transition: transform .25s ease-out;
+                                        -moz-transition: transform .25s ease-out;
+                                        -o-transition: transform .25s ease-out;
+                                        transition: transform .25s ease-out;
+                                        pointer-events: all;
+                                    }
+
+                                    label.brand-label.active::after,
+                                    label.interest-label.active::after {
+                                        transform: rotate(180deg);
+                                    }
+
+                                    label.interest-label span {
+                                        font-size: 90%;
+                                    }
+
+                                    @media (max-width: 678px) {
+
+                                        label.brand-label,
+                                        label.interest-label {
+                                            padding-top: 1rem;
+                                        }
+
+                                        label.checkbox-group,
+                                        label.checkbox-group-interest {
+                                            overflow-x: auto;
+                                        }
+
+                                        label.checkbox-group .brand-pref,
+                                        label.checkbox-group-interest .interest-pref {
+                                            min-width: 30rem;
+                                            padding: 0.5rem 0 0;
+                                        }
+                                    }
+                                </style>
+
+                                <script>
+                                    $(document).ready(function () {
+                                        $('#brand-label').on('click', function () {
+                                            if ($('#brand-label').hasClass("active")) {
+                                                $('#brand-label').removeClass("active");
+                                                $("#brand-group").hide();
+                                            } else {
+                                                $('#brand-label').addClass("active");
+                                                $("#brand-group").show();
+                                            }
+                                        });
+                                        $('#interest-label').on('click', function () {
+                                            if ($('#interest-label').hasClass("active")) {
+                                                $('#interest-label').removeClass("active");
+                                                $("#interest-group").hide();
+                                            } else {
+                                                $('#interest-label').addClass("active");
+                                                $("#interest-group").show();
+                                            }
+                                        });
+                                        $('#brand-optin-all').on('change', function (event) {
+                                            if (event.target.checked) {
+                                                $(".brand-optin").each(function () {
+                                                    $(this).prop("checked", true).attr('checked', true);
+                                                });
+                                            } else {
+                                                $(".brand-optin").each(function () {
+                                                    $(this).prop("checked", false).attr('checked', false);
+                                                });
+                                            }
+                                        });
+
+                                        $(".brand-optin").each(function () {
+                                            $(this).on("change", function (event) {
+                                                $('#brand-optin-all').prop("checked", false).attr('checked', false);
+                                            });
+                                        });
+
+                                    });
+                                </script>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="edit-optin" style="color: #f05983;" class="brand-label active"
+                                                id="brand-label">Preferred Brands / Jenama Pilihan* :</label>
+                                        </div>
+                                        <div class="form-group" id="brand-group">
                                             <span class="help-block" style="padding-left:15px"></span>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <table>
                                                     <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" id="checked-optin-all"
+                                                        <td><input type="checkbox" id="brand-optin-all"
                                                                 name="checkbox-optin" value="all" /></td>
                                                         <td
                                                             style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
                                                             All Brands</td>
                                                     </tr>
                                                     <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
-                                                                value="MYdnprgmilo_SBmktprogram" /> </td>
-                                                        <td
-                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            MILO&reg;</td>
-                                                    </tr>
-                                                    <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
                                                                 value="MYdnprgmaggi_SBmktprogram" /></td>
                                                         <td
                                                             style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
                                                             MAGGI&reg;</td>
                                                     </tr>
                                                     <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
-                                                                value="MYdnprgnescafe_SBmktprogram" /></td>
-                                                        <td
-                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            NESCAF&Eacute;&reg;</td>
-                                                    </tr>
-                                                    <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
                                                                 value="MYdnprgnestum_SBmktprogram" /></td>
                                                         <td
                                                             style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
                                                             NESTUM&reg;</td>
                                                     </tr>
-                                                </table>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <table>
                                                     <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
-                                                                value="MYdnprgmilk_SBmktprogram" /></td>
-                                                        <td
-                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            Just Milk&trade;</td>
-                                                    </tr>
-                                                    <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
-                                                                value="MYdnprgomegaplus_SBmktprogram" /></td>
-                                                        <td
-                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            Nestl&eacute; Omega Plus</td>
-                                                    </tr>
-                                                    <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
                                                                 value="MYdnprgmilk_SBmktprogram" /></td>
                                                         <td
                                                             style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
                                                             Nestl&eacute; EveryDay</td>
                                                     </tr>
                                                     <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
-                                                                value="MYdnprgicecream_SBmktprogram" /></td>
-                                                        <td
-                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            Ice Cream</td>
-                                                    </tr>
-                                                    <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
                                                                 value="MYdnprgkitkat_SBmktprogram" /></td>
                                                         <td
                                                             style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
                                                             KitKat&reg;</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESPRAY</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <table>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprgmilo_SBmktprogram" /> </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            MILO&reg;</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprgnescafe_SBmktprogram" /></td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESCAF&Eacute;&reg;</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprgmilk_SBmktprogram" /></td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESTLÉ Just Milk&trade;</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprgicecream_SBmktprogram" /></td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESTLÉ Ice Cream</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprgcrunch_SBmktprogram" /></td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Nestl&eacute; Crunch&reg;</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprgomegaplus_SBmktprogram" /></td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Nestl&eacute; Omega Plus</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprghealthscience_SBmktprogram" /></td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESTLÉ Health Science (NUTREN and PEPTAMEN)</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprgadultscereal_SBmktprogram" /></td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESTLÉ Breakfast Adult Cereal</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESTLÉ HARVEST GOURMET</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            MILO Ready-To-Drink (Can, UHT, Bottles)</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESCAFÉ Ready-To-Drink (Can, UHT, Bottles)</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESTLÉ LIVELY Tea</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-12">
+                                                <table>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" class="brand-optin"
+                                                                name="checkbox-optin"
+                                                                value="MYdnprgkidscereal_SBmktprogram" /></td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            NESTLÉ Breakfast Kids Cereal (KOKO KRUNCH, HONEY STARS and
+                                                            others)</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="edit-optin active" style="color: #f05983;"
+                                                class="interest-label active" id="interest-label">SELECT YOUR TOPIC OF
+                                                INTEREST *: <br>
+                                                <span style="color: #000;">(Help us to serve and inspire you with
+                                                    content you may
+                                                    love.)</span></label>
+                                        </div>
+                                        <div class="form-group" id="interest-group">
+                                            <span class="help-block" style="padding-left:15px"></span>
+                                            <div class="col-md-3">
+                                                <table>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="all" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Arts &amp; crafts</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Baking</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Charity</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Cooking</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Environment</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <table>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Fashion</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Gaming</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Health &amp; fitness</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Movies</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Nutrition</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -1000,33 +1322,31 @@
                                                 <table>
                                                     <tr style="vertical-align:initial">
                                                         <td><input type="checkbox" name="checkbox-optin"
-                                                                value="MYdnprgcrunch_SBmktprogram" /></td>
-                                                        <td
-                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            Nestl&eacute; Crunch&reg;</td>
-                                                    </tr>
-                                                    <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
                                                                 value="MYdnprghealthscience_SBmktprogram" /></td>
                                                         <td
                                                             style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            Nestl&eacute; Health Science<br />(Nutren&reg; and
-                                                            Peptamen&reg;)</td>
+                                                            Parenting</td>
                                                     </tr>
                                                     <tr style="vertical-align:initial">
                                                         <td><input type="checkbox" name="checkbox-optin"
                                                                 value="MYdnprgadultscereal_SBmktprogram" /></td>
                                                         <td
                                                             style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            Nestl&eacute; Breakfast Adult Cereal<br />(Fitnesse)</td>
+                                                            Pets &amp; animals</td>
                                                     </tr>
                                                     <tr style="vertical-align:initial">
-                                                        <td><input type="checkbox" name="checkbox-optin"
-                                                                value="MYdnprgkidscereal_SBmktprogram" /></td>
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
                                                         <td
                                                             style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
-                                                            Nestl&eacute; Breakfast Kids Cereal<br />(Koko Krunch&reg;,
-                                                            Honey Stars&reg; etc)</td>
+                                                            Sports &amp; outdoor activities</td>
+                                                    </tr>
+                                                    <tr style="vertical-align:initial">
+                                                        <td><input type="checkbox" name="checkbox-optin" value="" />
+                                                        </td>
+                                                        <td
+                                                            style="padding-left: 10px; padding-top:5px;padding-bottom: 3px;">
+                                                            Entrepreneurship</td>
                                                     </tr>
                                                 </table>
                                             </div>

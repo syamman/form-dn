@@ -933,15 +933,15 @@
                                                     <input type="radio" name="children_no" value="0"
                                                         onchange="handleChange(this);">&nbsp;&nbsp;No
                                                     Children</span>
-                                                <span style="padding-right: 50px"><input type="radio" value="2"
+                                                <span style="padding-right: 50px"><input type="radio" value="1"
                                                         name="children_no"
                                                         onchange="handleChange(this);">&nbsp;&nbsp;1-2
                                                     Children</span>
-                                                <span style="padding-right: 50px"><input type="radio" value="4"
+                                                <span style="padding-right: 50px"><input type="radio" value="3"
                                                         name="children_no"
                                                         onchange="handleChange(this);">&nbsp;&nbsp;3-4
                                                     Children</span> <br>
-                                                <span style="padding-right: 50px"><input type="radio" value="6"
+                                                <span style="padding-right: 50px"><input type="radio" value="5"
                                                         name="children_no" onchange="handleChange(this);">&nbsp;&nbsp;5
                                                     Children and
                                                     above</span>
@@ -952,40 +952,115 @@
 
                                     <script>
                                         function initChildDOBRange() {
-                                            for (let i = dateRange().max_date.getFullYear(); i >= dateRange().min_date.getFullYear(); i--) {
+                                            for (let i = childBirthRange().max_date.getFullYear(); i >= childBirthRange().min_date.getFullYear(); i--) {
                                                 $('select.child-bearth-year').each(function () {
                                                     $(this).append(`<option value="${i}">` + i + '</option>');
                                                 });
                                             };
                                         };
 
+                                        function childBirthRange() {
+                                            const min_date = new Date();
+                                            const max_date = new Date();
+                                            max_date.setMonth(max_date.getMonth() - 0);
+                                            min_date.setMonth(max_date.getMonth() - 252);
+
+                                            var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                                            return { min_date: min_date, max_date: max_date, month: month }
+                                        }
+
+                                        const child_birth_label = [{ name: "First", min: 1, max: 2 }, { name: "Second", min: 1, max: 2 }, { name: "Third", min: 3, max: 4 }, { name: "Fourth", min: 3, max: 4 }, { name: "Fifth", min: 5, max: 10 }, { name: "Sixth", min: 5, max: 10 }, { name: "Seventh", min: 5, max: 10 }, { name: "Eighth", min: 5, max: 10 }, { name: "Ninth", min: 5, max: 10 }, { name: "Tenth", min: 5, max: 10 }, { name: "Eleventh", min: 5, max: 20 }];
+
                                         function handleChange(src) {
                                             $('#child-datebirth').html("");
-                                            const child_birth_label = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth"];
                                             for (let x = 0; x < src.value; x++) {
-                                                $('#child-datebirth').append(childBirthInput(child_birth_label[x], x + 1 == src.value ? true : false));
+                                                $('#child-datebirth').append(childBirthInput(child_birth_label[x].name, x + 1 == src.value ? true : false, x + 1, 'add'));
                                             }
 
                                             initChildDOBRange();
                                         }
 
-                                        function childBirthInput(label, last) {
-                                            console.log("last")
-                                            return `<div class="col-md-6" style="${last ? 'margin-bottom: 2rem' : ''}">
+                                        function childBirthInput(label, last, last_id, action) {
+                                            console.log(last_id);
+                                            return `<div id="${label}-child-input" class="col-md-6" style="${last ? 'margin-bottom: 2rem' : ''}">
                                             <div class="form-group">
                                                 <label for="children-no">${label} Child Birth Year</label><br />
                                                     <select name="children-no" id=""
                                                         class="form-control input-lg form-select child-bearth-year">
                                                     </select>
-                                                </div>
-                                            </div>`;
+                                                    ${last &&
+                                                    action === "add" ? buttonAdd(label, last_id, "add")
+                                                    : action === "remove" ? buttonAdd(label, last_id, "remove") : action === "both" ? buttonAdd(label, last_id, "both") : ""}
+                                                        </div>
+                                                        </div>`;
+                                        }
+
+                                        function addChild(button, label, last, last_id, action, min, max) {
+                                            if (action == "add") {
+                                                $(`#${button}`).each(function () {
+                                                    $(this).parent().parent().css("margin-bottom", "0");
+                                                });
+                                                $(`button#${button}`).each(function () {
+                                                    $(this).remove();
+                                                });
+                                                if (max == last_id) {
+                                                    $('#child-datebirth').append(childBirthInput(label, last, last_id, 'remove'));
+                                                } else if (min < last_id || max > last_id) {
+                                                    $('#child-datebirth').append(childBirthInput(label, last, last_id, 'both'));
+                                                } else if (min == last_id) {
+                                                    $('#child-datebirth').append(childBirthInput(label, last, last_id, 'add'));
+                                                }
+                                                initChildDOBRange();
+                                            } else {
+                                                if (min < last_id || max > last_id) {
+                                                    $(`#${child_birth_label[last_id - 1].name}-child-input .form-group`).append(buttonAdd(label, last_id, "both"));
+                                                    $(`#${button}`).parent().parent().remove();
+                                                } else {
+                                                    $(`#${child_birth_label[last_id - 1].name}-child-input .form-group`).append(buttonAdd(label, last_id, "add"));
+                                                    $(`#${button}`).parent().parent().remove();
+                                                }
+                                            }
+                                        }
+
+                                        function buttonAdd(label, last_id, action) {
+                                            if (action == "add") {
+                                                return `<button id="${label}-child-button" class="button-add" onclick="addChild('${label}-child-button', '${child_birth_label[last_id].name}', '${true}', '${+last_id + 1}', '${action}', '${child_birth_label[last_id].min}', '${child_birth_label[last_id].max}')">Add Child</button>`
+                                            } else if (action == "remove") {
+                                                return `<button id="${label}-child-button" class="button-remove" onclick="addChild('${label}-child-button', '${child_birth_label[last_id].name}', '${true}', '${+last_id - 1}', '${action}', '${child_birth_label[last_id].min}', '${child_birth_label[last_id].max}')">Remove Child</button>`;
+                                            } else if (action == "both") {
+                                                return `<button id="${label}-child-button" class="button-add" onclick="addChild('${label}-child-button', '${child_birth_label[last_id].name}', '${true}', '${+last_id + 1}', 'add', '${child_birth_label[last_id].min}', '${child_birth_label[last_id].max}')">Add Child</button>
+                                                        <button id="${label}-child-button" class="button-remove" onclick="addChild('${label}-child-button', '${child_birth_label[last_id].name}', '${true}', '${+last_id - 1}', 'remove', '${child_birth_label[last_id].min}', '${child_birth_label[last_id].max}')">Remove Child</button>`
+                                            }
                                         }
                                     </script>
 
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                        </div>
-                                    </div>
+                                    <style>
+                                        button {
+                                            border: 0;
+                                            color: #fff;
+                                            border-radius: 1rem;
+                                            padding: .5rem 1rem;
+                                            margin-top: 1rem;
+                                        }
+
+                                        button.button-add {
+                                            background: green;
+                                        }
+
+                                        button.button-remove {
+                                            background: red;
+                                        }
+
+                                        button.button-add:hover {
+                                            background: rgb(0, 87, 0);
+                                        }
+
+                                        button.button-remove:hover {
+                                            background: rgb(154, 7, 7);
+                                        }
+                                    </style>
+
+                                    <!-- <button>Remove Child</button> -->
 
                                     <style type="text/css">
                                         label.brand-label,
